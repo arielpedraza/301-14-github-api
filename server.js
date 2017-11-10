@@ -12,7 +12,7 @@ app.get('/github/*', (req, res) => {
   console.log('Routing a GitHub API request for ', req.params[0]);
   const url =`https://api.github.com/${req.params[0]}`;
   superagent(url)
-    .set(`Authorization`, `token ${process.env.github_token}`)
+    .set(`Authorization`, `token ${process.env.GITHUB_TOKEN}`)
     .then(
       repos => res.send(repos.text),
       err => res.send(err)
